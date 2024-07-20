@@ -23,10 +23,12 @@ export class AppComponent implements OnInit {
 
   showPasswordConfirm : boolean = false;
 
+  submitted = false;
+
   constructor(){}
 
   ngOnInit(): void {
-    this.createSignUp()
+      this.createSignUp()
 
       this.isAddressSame()
 
@@ -90,13 +92,14 @@ export class AppComponent implements OnInit {
   }
 
   onSignUp(){
+    this.submitted = true;
     if (this.signUpForm.valid) {
       console.log(this.signUpForm.value)
       // console.log(this.signUpForm.controls)
       // console.log(this.signUpForm)
       // console.log({...this.signUpForm.value, permanentaddress : {...this.signUpForm.get('permanentaddress')?.value}})
       console.log(this.signUpForm.getRawValue())
-      this.signUpForm.reset()
+      // this.signUpForm.reset()
     }
 
     // if (this.signUpForm.valid || this.sc['password'].value !== this.sc['confirmPassword'].value) {
@@ -107,6 +110,11 @@ export class AppComponent implements OnInit {
     //   console.log(this.signUpForm.getRawValue())
     // }
   }
+
+  onReset() {
+    this.submitted = false;
+    this.signUpForm.reset();
+}
 
   get sc(){
     return this.signUpForm.controls

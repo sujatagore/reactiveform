@@ -3,7 +3,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-8 offset-md-2 mb-2">
-      <mat-card>
+      <mat-card class="card">
         <mat-card-header>
           <mat-card-title>
             <strong class="text-center">Sign Up Form</strong>
@@ -344,8 +344,10 @@
               Password and Confirm Password must be same...
             </mat-error>
 
-            <button type="submit" mat-raised-button color="primary" class="btn-block" 
-            [disabled]="signUpForm.invalid">Sign Up</button>
+            <button type="submit" mat-raised-button color="primary" class="btn-block" [disabled]="signUpForm.invalid"
+            >Sign Up</button>
+
+            <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
 
             <!-- <button type="submit" mat-raised-button color="primary" class="btn-block" 
             [disabled]="signUpForm.invalid || sc['password'].value !== sc['confirmPassword'].value">Sign Up</button> -->
